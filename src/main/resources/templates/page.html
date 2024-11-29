@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>MoviePage</title>
+</head>
+<body>
+    <h1 th:if="${emp}" >Name not specified</h1>
+    <h1 th:if="${notFound}" >Movie Not found</h1>
+    <h1 th:text="${moviePath}"></h1>
+    <center>
+    <video th:unless="${emp} or ${notFound}"  id="video" width="1280" height="720" controls preload="metadata" crossorigin="anonymous">
+        <source th:src="${moviePath}" type="video/mp4">
+<!--        <track label="English" kind="subtitles" srclang="en" src="http://file.vtt" default>-->
+        Your browser does not support the video tag.
+    </video>
+    </center>
+</body>
+</html>
